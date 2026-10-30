@@ -1,0 +1,12 @@
+{
+  "ubuntu-24.04": {
+    "displayName": "Ubuntu 24.04 LTS (amd64)",
+    "build": "20261017",
+    "url": "https://mirrors.zju.edu.cn/ubuntu-cloud-images/noble/20261017/noble-server-cloudimg-amd64-root.tar.xz",
+    "sha256": "ec6972af8ea2bd05c55299d204e5ae3f91769b84cfaec7395639d236a39f9a03",
+    "file": "ubuntu-24.04-20261017.tar.xz",
+    "kernel": "6.1.188",
+    "minimumDiskGiB": 8,
+    "user": "cloud"
+  }
+}

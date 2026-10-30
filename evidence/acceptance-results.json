@@ -1,0 +1,81 @@
+{
+  "time": "2026-10-30T21:53:59.324207+08:00",
+  "checks": [
+    {
+      "name": "alice Ubuntu SSH and sudo",
+      "passed": true,
+      "pod_uid": "9a9f2a41-1e31-4753-8dd1-a0d5710eac27",
+      "image": "ubuntu-24.04"
+    },
+    {
+      "name": "bob Ubuntu SSH and sudo",
+      "passed": true,
+      "pod_uid": "202b1cca-91dd-4b68-b56e-e6aa63058b9c",
+      "image": "ubuntu-24.04"
+    },
+    {
+      "name": "guest DNS and HTTPS through Pod NAT",
+      "passed": true
+    },
+    {
+      "name": "cross-user, node, management and Kubernetes API blocked",
+      "passed": true,
+      "targets": [
+        [
+          "172.26.18.131",
+          2222,
+          "BLOCKED"
+        ],
+        [
+          "172.25.4.60",
+          22,
+          "BLOCKED"
+        ],
+        [
+          "172.25.3.240",
+          22,
+          "BLOCKED"
+        ],
+        [
+          "172.27.0.1",
+          443,
+          "BLOCKED"
+        ]
+      ]
+    },
+    {
+      "name": "Alice key cannot log into Bob VM",
+      "passed": true
+    },
+    {
+      "name": "offline backup restores onto a fresh PVC and boots with retained data",
+      "passed": true,
+      "source": "alice-root",
+      "restored": "alice-restored-root",
+      "backup": "alice-1793369029.raw.gz"
+    },
+    {
+      "name": "platform stop/start retains OS modifications",
+      "passed": true
+    },
+    {
+      "name": "guest systemd poweroff stays stopped",
+      "passed": true,
+      "pod_uid": "c8c6c251-49bd-4950-8863-495c801fb557"
+    },
+    {
+      "name": "restored guest poweroff after updated backup",
+      "passed": true
+    },
+    {
+      "name": "acceptance environment left ready",
+      "passed": true,
+      "vms": [
+        "alice",
+        "bob"
+      ],
+      "restored_vm": "Stopped"
+    }
+  ],
+  "completedAt": "2026-10-30T22:07:37.481145+08:00"
+}

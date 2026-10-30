@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	cloud "github.com/Sushidesu486/cloud-operator/api/v1alpha1"
 	corev1 "k8s.io/api/core/v1"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
 	meta "k8s.io/apimachinery/pkg/api/meta"
@@ -14,7 +15,6 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"strconv"
 	"time"
-	cloud "github.com/Sushidesu486/cloud-operator/api/v1alpha1"
 )
 
 type Reconciler struct {
@@ -126,7 +126,10 @@ func (r *Reconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Resu
 		}
 		for _, c := range current.Status.Conditions {
 			if c.Type == corev1.PodReady && c.Status == corev1.ConditionTrue {
-				return r.status(ctx, vm, "Running", "VMMRunning", "Firecracker started; guest service readiness is not implied", current)
+				if r.Runner.NetworkNAT {
+					return r.status(ctx, vm, "Running", "SSHReady", "Guest SSH service is ready", current)
+				}
+				return r.status(ctx, vm, "Running", "VMMRunning", "Firecracker started", current)
 			}
 		}
 		return r.status(ctx, vm, "Pending", "LauncherPending", "Waiting for scheduling, volume attachment or VMM startup", current)

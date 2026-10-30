@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "id": "vm",
+  "vcpus": 1,
+  "memoryMiB": 128,
+  "firecracker": "/assets/firecracker",
+  "jailer": "/assets/jailer",
+  "kernel": "/assets/vmlinux",
+  "rootDevice": "/dev/vm-root",
+  "workDir": "/work",
+  "graceSeconds": 60,
+  "networkNAT": true
+}

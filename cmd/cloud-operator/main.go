@@ -3,6 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
+	cloud "github.com/Sushidesu486/cloud-operator/api/v1alpha1"
+	"github.com/Sushidesu486/cloud-operator/internal/controller"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	"os"
@@ -11,8 +13,6 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/cache"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 	metrics "sigs.k8s.io/controller-runtime/pkg/metrics/server"
-	cloud "github.com/Sushidesu486/cloud-operator/api/v1alpha1"
-	"github.com/Sushidesu486/cloud-operator/internal/controller"
 )
 
 func main() {
@@ -23,6 +23,7 @@ func main() {
 	flag.StringVar(&options.Node, "node", "", "Allowed development node hostname")
 	flag.StringVar(&options.Assets, "assets", "", "Read-only node path containing development assets")
 	flag.BoolVar(&options.Development, "development", false, "Explicitly enable privileged experimental launcher Pods")
+	flag.BoolVar(&options.NetworkNAT, "network-nat", false, "Enable Pod-local VM NAT and SSH readiness")
 	flag.Parse()
 	if ns == "" || ns == "default" || ns == "kube-system" || !options.Development || !filepath.IsAbs(options.Assets) || options.Assets == "/" {
 		fmt.Fprintln(os.Stderr, "requires an isolated --namespace, --development and an absolute --assets directory")

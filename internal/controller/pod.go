@@ -3,19 +3,19 @@ package controller
 import (
 	"encoding/json"
 	"fmt"
+	cloud "github.com/Sushidesu486/cloud-operator/api/v1alpha1"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/utils/ptr"
 	"strconv"
-	cloud "github.com/Sushidesu486/cloud-operator/api/v1alpha1"
 )
 
 const VMLabel = "cloud.zjusct.io/vm-uid"
 const OwnerLabel = "cloud.zjusct.io/owner"
 const BootLabel = "cloud.zjusct.io/boot-id"
 
-// RunnerConfig is protocol v1, shared by contract, not by a cross-repo Go import.
+// RunnerConfig implements the versioned contract shared with cloud-launcher.
 type RunnerConfig struct {
 	Version      int    `json:"version"`
 	ID           string `json:"id"`
@@ -27,10 +27,12 @@ type RunnerConfig struct {
 	RootDevice   string `json:"rootDevice"`
 	WorkDir      string `json:"workDir"`
 	GraceSeconds int    `json:"graceSeconds"`
+	NetworkNAT   bool   `json:"networkNAT,omitempty"`
 }
 type RunnerOptions struct {
 	Image, Node, Assets string
 	Development         bool
+	NetworkNAT          bool
 }
 
 func podName(vm *cloud.CloudVM) string {
@@ -43,6 +45,13 @@ func BuildPod(vm *cloud.CloudVM, options RunnerOptions) (*corev1.Pod, error) {
 	}
 	cfg := RunnerConfig{Version: 1, ID: "vm", VCPUs: vm.Spec.VCPUs, MemoryMiB: vm.Spec.MemoryMiB,
 		Firecracker: "/assets/firecracker", Jailer: "/assets/jailer", Kernel: "/assets/vmlinux", RootDevice: "/dev/vm-root", WorkDir: "/work", GraceSeconds: 12}
+	grace := int64(20)
+	if options.NetworkNAT {
+		cfg.Version = 2
+		cfg.NetworkNAT = true
+		cfg.GraceSeconds = 60
+		grace = 75
+	}
 	raw, err := json.Marshal(cfg)
 	if err != nil {
 		return nil, err
@@ -58,7 +67,7 @@ func BuildPod(vm *cloud.CloudVM, options RunnerOptions) (*corev1.Pod, error) {
 			OwnerReferences: []metav1.OwnerReference{*metav1.NewControllerRef(vm, cloud.GroupVersion.WithKind("CloudVM"))}},
 		Spec: corev1.PodSpec{
 			RestartPolicy: corev1.RestartPolicyNever, AutomountServiceAccountToken: ptr.To(false), EnableServiceLinks: ptr.To(false),
-			NodeSelector: map[string]string{"kubernetes.io/hostname": options.Node}, TerminationGracePeriodSeconds: ptr.To(int64(20)),
+			NodeSelector: map[string]string{"kubernetes.io/hostname": options.Node}, TerminationGracePeriodSeconds: ptr.To(grace),
 			Containers: []corev1.Container{{Name: "launcher", Image: options.Image, ImagePullPolicy: corev1.PullIfNotPresent,
 				Command: []string{"/assets/cloud-launcher", "run"}, Env: []corev1.EnvVar{{Name: "CLOUD_LAUNCHER_CONFIG", Value: string(raw)}},
 				SecurityContext:        &corev1.SecurityContext{Privileged: ptr.To(true), ReadOnlyRootFilesystem: ptr.To(true)},

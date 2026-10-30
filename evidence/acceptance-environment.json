@@ -1,0 +1,60 @@
+{
+  "time": "2026-10-30T22:05:53.654622+08:00",
+  "namespace": "cloud-operator-lab",
+  "node": "m600.clusters.zjusct.io",
+  "sourceImage": {
+    "url": "https://mirrors.zju.edu.cn/ubuntu-cloud-images/noble/20261017/noble-server-cloudimg-amd64-root.tar.xz",
+    "sha256": "ec6972af8ea2bd05c55299d204e5ae3f91769b84cfaec7395639d236a39f9a03",
+    "bytes": 227213232
+  },
+  "checks": [
+    {
+      "name": "both repositories go test -race ./...",
+      "passed": true
+    },
+    {
+      "name": "Bob guest HTTPS to github.com",
+      "passed": true,
+      "response": "HTTP/2 200"
+    },
+    {
+      "name": "Bob apt update and install tree through ZJU Mirror",
+      "passed": true,
+      "package": "tree",
+      "version": "2.1.1-2ubuntu3.24.04.2"
+    },
+    {
+      "name": "operator cannot read secrets in default namespace",
+      "passed": true,
+      "result": "no"
+    },
+    {
+      "name": "backup stored on m600 local ext4 filesystem",
+      "passed": true,
+      "source": "/dev/sdi1",
+      "path": "/var/tmp/zjusct-cloud-operator-lab-20261030/backups/"
+    }
+  ],
+  "resolvedIssues": [
+    {
+      "issue": "SSH socket required by ssh.service after masking socket activation",
+      "fix": "Disable ssh.socket before masking it; enable ssh.service."
+    },
+    {
+      "issue": "Forwarded guest DNS to Service VIP denied before endpoint translation",
+      "evidence": "Cilium endpoint drop showed Pod IP -> 172.27.0.10:53 policy denied; native Pod DNS succeeded.",
+      "fix": "Relay DNS on 192.0.2.1 using Pod sockets so Cilium Service translation and DNS policy apply."
+    },
+    {
+      "issue": "systemd poweroff SuccessAction halted guest without exiting VMM",
+      "fix": "Override systemd-poweroff.service Unit SuccessAction=reboot-force; systemd tears down services/filesystems before reset."
+    }
+  ],
+  "scope": {
+    "runner": "privileged development Pods",
+    "portal": "paused",
+    "productionArgo": "unchanged",
+    "storageClass": "existing ceph-block",
+    "backupMode": "offline raw gzip with SHA-256; restore onto a fresh PVC"
+  }
+}
