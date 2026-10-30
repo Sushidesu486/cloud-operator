@@ -1,0 +1,8 @@
+{
+  "issue": "Generic guest poweroff halted CPU without terminating VMM",
+  "resolution": "Adapt disposable guest shutdown hook to sync/remount-ro then i8042 reset (reboot -f); verify RequestedStop exit result",
+  "observed_messages": [
+    "CLOUD_GUEST_STOPPED",
+    "[    6.023530] reboot: System halted"
+  ]
+}

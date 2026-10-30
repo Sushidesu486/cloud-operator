@@ -1,0 +1,12 @@
+apiVersion: cloud.zjusct.io/v1alpha1
+kind: CloudVM
+metadata:
+  name: alice
+  namespace: cloud-operator-lab
+spec:
+  owner: alice
+  rootVolumeClaim: alice-root
+  vcpus: 1
+  memoryMiB: 128
+  powerState: Running
+  bootID: 1

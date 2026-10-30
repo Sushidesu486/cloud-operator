@@ -1,0 +1,36 @@
+{
+  "time": "2026-10-30T16:50:07.709806+08:00",
+  "checks": [
+    {
+      "name": "operator creates scheduled Firecracker Pod",
+      "passed": true,
+      "pod_uid": "dddefbab-8bdf-4ea4-b596-1f6ac14a927b",
+      "node": "m600.clusters.zjusct.io"
+    },
+    {
+      "name": "requested stop exits cleanly and retains root PVC",
+      "passed": true,
+      "launcher_reason": "RequestedStop",
+      "exit_code": 0
+    },
+    {
+      "name": "new boot preserves the actual root filesystem",
+      "passed": true,
+      "pod_uid": "1a94e033-a7ac-4bde-b7be-23a8cd8c0c95"
+    },
+    {
+      "name": "guest shutdown stays stopped across reconciles",
+      "passed": true,
+      "pod_uid": "1a94e033-a7ac-4bde-b7be-23a8cd8c0c95"
+    },
+    {
+      "name": "CRD rejects root volume reassignment",
+      "passed": true
+    },
+    {
+      "name": "deleting VM retains its independently owned root PVC",
+      "passed": true,
+      "pvc_uid": "822062f3-9034-42a2-ab5a-1227c5d73806"
+    }
+  ]
+}

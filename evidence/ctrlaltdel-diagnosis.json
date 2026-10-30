@@ -1,0 +1,10 @@
+{
+  "issue": "SendCtrlAltDel returned success but the guest did not react; launcher correctly reported ForcedStop",
+  "resolution": "Add minimal AF_VSOCK guest helper with fixed shutdown action",
+  "observed_result": {
+    "version": 1,
+    "reason": "ForcedStop",
+    "exitCode": 2,
+    "api_error": null
+  }
+}

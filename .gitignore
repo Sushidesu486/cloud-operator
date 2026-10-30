@@ -1,0 +1,4 @@
+/bin/
+/.local/
+*.test
+__pycache__/

@@ -1,0 +1,19 @@
+{
+  "time": "2026-10-30T16:55:06.484479+08:00",
+  "repositories": [
+    "cloud-operator",
+    "cloud-launcher"
+  ],
+  "tests": {
+    "cloud-operator": "go test -race ./... passed; final completed-Pod cleanup change also passed targeted controller tests",
+    "cloud-launcher": "go test -race ./... passed; Linux/amd64 launcher and guest helper compiled",
+    "integration": "6 real m600 / Ceph / Firecracker lifecycle checks passed; see live-results.json"
+  },
+  "cleanup": "cloud-operator-lab namespace, disposable PVC, experiment-owned CloudVM CRD and short-lived credential file removed; temporary operator stopped",
+  "scope": "No production Argo changes, commits, pushes or remote repository creation",
+  "binary_sha256": {
+    "cloud-operator/bin/cloud-operator": "75d66381dcb107aba68e7606796a0be99c45515eddcb93a23bcd4329636f8b14",
+    "cloud-launcher/bin/cloud-launcher": "05bf12b64d9f2df1e24f64b16e271ae67fb7e4a1f2ad509f78c5becb371fc041",
+    "cloud-launcher/bin/cloud-guest-helper": "efd483f45eaaeaef633f45d61ca76f12d6820f4c61b6338a97a8c1de4556209c"
+  }
+}
