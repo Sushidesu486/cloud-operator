@@ -1,0 +1,834 @@
+{
+  "startedAt": "2026-10-30T23:16:06.012195+08:00",
+  "configuration": {
+    "cpuAffinity": 63,
+    "vmVCPUs": 1,
+    "guestMemoryMiB": 512,
+    "rootGiB": 8,
+    "guestOS": "Ubuntu 24.04",
+    "loadNode": "m601.clusters.zjusct.io",
+    "vmNode": "m600.clusters.zjusct.io",
+    "upstreamWaitMs": 250,
+    "agentCPUms": 1,
+    "responseBytes": {
+      "web": 4096,
+      "mockAPI": 16384
+    },
+    "readinessPeriodSeconds": 2
+  },
+  "stages": [
+    {
+      "vmCount": 1,
+      "scaleUpSeconds": 24.67049299972132,
+      "tests": [
+        {
+          "path": "/web",
+          "vmCount": 1,
+          "offeredRps": 100,
+          "scheduledSeconds": 20,
+          "elapsedSeconds": 19.99431614705827,
+          "requests": 2000,
+          "success": 2000,
+          "errors": 0,
+          "errorTypes": {},
+          "successfulRps": 100.02842734355066,
+          "latencyMs": {
+            "p50": 2.089724992401898,
+            "p95": 276.29894099663943,
+            "p99": 722.1789869945496,
+            "max": 899.9097410123795
+          },
+          "driverLagP99Ms": 2.111101057380438,
+          "perHostSuccess": {
+            "172.26.18.140": 2000
+          },
+          "resources": {
+            "cpuCores": 0.13875031815470923,
+            "memoryCurrentMiB": 643.46484375,
+            "anonymousMiB": 315.3984375,
+            "throttledSeconds": 0.0,
+            "throttledPeriods": 0,
+            "periods": 404,
+            "oomKills": 0,
+            "affinity": [
+              "Cpus_allowed_list:\t63"
+            ]
+          }
+        },
+        {
+          "path": "/web",
+          "vmCount": 1,
+          "offeredRps": 500,
+          "scheduledSeconds": 20,
+          "elapsedSeconds": 20.000993197085336,
+          "requests": 10000,
+          "success": 10000,
+          "errors": 0,
+          "errorTypes": {},
+          "successfulRps": 499.97517130585595,
+          "latencyMs": {
+            "p50": 2.0975939696654677,
+            "p95": 4.192602005787194,
+            "p99": 185.98273501265794,
+            "max": 354.7141399467364
+          },
+          "driverLagP99Ms": 1.1754210572689772,
+          "perHostSuccess": {
+            "172.26.18.140": 10000
+          },
+          "resources": {
+            "cpuCores": 0.6113471053035935,
+            "memoryCurrentMiB": 644.55078125,
+            "anonymousMiB": 316.3125,
+            "throttledSeconds": 0.0,
+            "throttledPeriods": 0,
+            "periods": 410,
+            "oomKills": 0,
+            "affinity": [
+              "Cpus_allowed_list:\t63"
+            ]
+          }
+        },
+        {
+          "path": "/agent",
+          "vmCount": 1,
+          "offeredRps": 40,
+          "scheduledSeconds": 20,
+          "elapsedSeconds": 20.23441003798507,
+          "requests": 800,
+          "success": 800,
+          "errors": 0,
+          "errorTypes": {},
+          "successfulRps": 39.53661107480767,
+          "latencyMs": {
+            "p50": 256.01042399648577,
+            "p95": 257.9059830168262,
+            "p99": 263.6798359453678,
+            "max": 290.080604958348
+          },
+          "driverLagP99Ms": 2.2203130647540092,
+          "perHostSuccess": {
+            "172.26.18.140": 800
+          },
+          "resources": {
+            "cpuCores": 0.14644344483201457,
+            "memoryCurrentMiB": 643.94921875,
+            "anonymousMiB": 316.61328125,
+            "throttledSeconds": 0.0,
+            "throttledPeriods": 0,
+            "periods": 414,
+            "oomKills": 0,
+            "affinity": [
+              "Cpus_allowed_list:\t63"
+            ]
+          }
+        },
+        {
+          "path": "/agent",
+          "vmCount": 1,
+          "offeredRps": 100,
+          "scheduledSeconds": 20,
+          "elapsedSeconds": 20.247986910049804,
+          "requests": 2000,
+          "success": 2000,
+          "errors": 0,
+          "errorTypes": {},
+          "successfulRps": 98.77525152919415,
+          "latencyMs": {
+            "p50": 255.49311691429466,
+            "p95": 257.6984540792182,
+            "p99": 266.6031679837033,
+            "max": 311.4200310083106
+          },
+          "driverLagP99Ms": 1.6752030933275819,
+          "perHostSuccess": {
+            "172.26.18.140": 2000
+          },
+          "resources": {
+            "cpuCores": 0.32470997026537624,
+            "memoryCurrentMiB": 644.03515625,
+            "anonymousMiB": 316.6171875,
+            "throttledSeconds": 0.0,
+            "throttledPeriods": 0,
+            "periods": 412,
+            "oomKills": 0,
+            "affinity": [
+              "Cpus_allowed_list:\t63"
+            ]
+          }
+        },
+        {
+          "path": "/agent",
+          "vmCount": 1,
+          "offeredRps": 300,
+          "scheduledSeconds": 20,
+          "elapsedSeconds": 20.257495454046875,
+          "requests": 6000,
+          "success": 6000,
+          "errors": 0,
+          "errorTypes": {},
+          "successfulRps": 296.1866640232354,
+          "latencyMs": {
+            "p50": 407.0490140002221,
+            "p95": 781.5099239815027,
+            "p99": 1097.5316509138793,
+            "max": 1648.9769269246608
+          },
+          "driverLagP99Ms": 1.3509367126971483,
+          "perHostSuccess": {
+            "172.26.18.140": 6000
+          },
+          "resources": {
+            "cpuCores": 0.7547028167055229,
+            "memoryCurrentMiB": 649.31640625,
+            "anonymousMiB": 328.45703125,
+            "throttledSeconds": 0.0,
+            "throttledPeriods": 0,
+            "periods": 407,
+            "oomKills": 0,
+            "affinity": [
+              "Cpus_allowed_list:\t63"
+            ]
+          }
+        }
+      ],
+      "idle": {
+        "cpuCores": 0.013001268956680224,
+        "memoryCurrentMiB": 642.38671875,
+        "anonymousMiB": 313.58984375,
+        "throttledSeconds": 0.0,
+        "throttledPeriods": 0,
+        "periods": 74,
+        "oomKills": 0,
+        "affinity": [
+          "Cpus_allowed_list:\t63"
+        ]
+      }
+    },
+    {
+      "vmCount": 10,
+      "scaleUpSeconds": 65.0262008337304,
+      "tests": [
+        {
+          "path": "/web",
+          "vmCount": 10,
+          "offeredRps": 100,
+          "scheduledSeconds": 20,
+          "elapsedSeconds": 19.99269976199139,
+          "requests": 2000,
+          "success": 2000,
+          "errors": 0,
+          "errorTypes": {},
+          "successfulRps": 100.03651451827676,
+          "latencyMs": {
+            "p50": 2.673635957762599,
+            "p95": 8.566107950173318,
+            "p99": 215.98723193164915,
+            "max": 688.3625329937786
+          },
+          "driverLagP99Ms": 1.7727100057527423,
+          "perHostSuccess": {
+            "172.26.18.140": 200,
+            "172.26.18.3": 200,
+            "172.26.18.42": 200,
+            "172.26.18.141": 200,
+            "172.26.18.27": 200,
+            "172.26.18.95": 200,
+            "172.26.18.56": 200,
+            "172.26.18.182": 200,
+            "172.26.18.102": 200,
+            "172.26.18.37": 200
+          },
+          "resources": {
+            "cpuCores": 0.28541889980541096,
+            "memoryCurrentMiB": 6432.45703125,
+            "anonymousMiB": 3134.47265625,
+            "throttledSeconds": 0.0,
+            "throttledPeriods": 0,
+            "periods": 4045,
+            "oomKills": 0,
+            "affinity": [
+              "Cpus_allowed_list:\t63"
+            ]
+          }
+        },
+        {
+          "path": "/web",
+          "vmCount": 10,
+          "offeredRps": 500,
+          "scheduledSeconds": 20,
+          "elapsedSeconds": 20.593943336978555,
+          "requests": 10000,
+          "success": 10000,
+          "errors": 0,
+          "errorTypes": {},
+          "successfulRps": 485.579659823768,
+          "latencyMs": {
+            "p50": 54.71931293141097,
+            "p95": 235.60117790475488,
+            "p99": 730.7894399855286,
+            "max": 1664.0931160654873
+          },
+          "driverLagP99Ms": 1.2214090675115585,
+          "perHostSuccess": {
+            "172.26.18.140": 1000,
+            "172.26.18.3": 1000,
+            "172.26.18.42": 1000,
+            "172.26.18.141": 1000,
+            "172.26.18.27": 1000,
+            "172.26.18.95": 1000,
+            "172.26.18.56": 1000,
+            "172.26.18.182": 1000,
+            "172.26.18.102": 1000,
+            "172.26.18.37": 1000
+          },
+          "resources": {
+            "cpuCores": 0.8821073740071887,
+            "memoryCurrentMiB": 6431.15234375,
+            "anonymousMiB": 3133.55859375,
+            "throttledSeconds": 0.0,
+            "throttledPeriods": 0,
+            "periods": 4085,
+            "oomKills": 0,
+            "affinity": [
+              "Cpus_allowed_list:\t63"
+            ]
+          }
+        },
+        {
+          "path": "/agent",
+          "vmCount": 10,
+          "offeredRps": 40,
+          "scheduledSeconds": 20,
+          "elapsedSeconds": 20.234092255006544,
+          "requests": 800,
+          "success": 800,
+          "errors": 0,
+          "errorTypes": {},
+          "successfulRps": 39.53723201010192,
+          "latencyMs": {
+            "p50": 256.5039809560403,
+            "p95": 267.3607219476253,
+            "p99": 401.01156500168145,
+            "max": 778.9176400983706
+          },
+          "driverLagP99Ms": 2.2361839655786753,
+          "perHostSuccess": {
+            "172.26.18.140": 80,
+            "172.26.18.3": 80,
+            "172.26.18.42": 80,
+            "172.26.18.141": 80,
+            "172.26.18.27": 80,
+            "172.26.18.95": 80,
+            "172.26.18.56": 80,
+            "172.26.18.182": 80,
+            "172.26.18.102": 80,
+            "172.26.18.37": 80
+          },
+          "resources": {
+            "cpuCores": 0.23674414856115072,
+            "memoryCurrentMiB": 6429.13671875,
+            "anonymousMiB": 3134.25390625,
+            "throttledSeconds": 0.0,
+            "throttledPeriods": 0,
+            "periods": 3288,
+            "oomKills": 0,
+            "affinity": [
+              "Cpus_allowed_list:\t63"
+            ]
+          }
+        },
+        {
+          "path": "/agent",
+          "vmCount": 10,
+          "offeredRps": 100,
+          "scheduledSeconds": 20,
+          "elapsedSeconds": 20.248602753970772,
+          "requests": 2000,
+          "success": 2000,
+          "errors": 0,
+          "errorTypes": {},
+          "successfulRps": 98.77224736446557,
+          "latencyMs": {
+            "p50": 256.8291339557618,
+            "p95": 274.2119219619781,
+            "p99": 467.9423909401521,
+            "max": 953.1648519914597
+          },
+          "driverLagP99Ms": 2.0277779549360275,
+          "perHostSuccess": {
+            "172.26.18.140": 200,
+            "172.26.18.3": 200,
+            "172.26.18.42": 200,
+            "172.26.18.141": 200,
+            "172.26.18.27": 200,
+            "172.26.18.95": 200,
+            "172.26.18.56": 200,
+            "172.26.18.182": 200,
+            "172.26.18.102": 200,
+            "172.26.18.37": 200
+          },
+          "resources": {
+            "cpuCores": 0.4950493002028392,
+            "memoryCurrentMiB": 6429.984375,
+            "anonymousMiB": 3135.18359375,
+            "throttledSeconds": 0.0,
+            "throttledPeriods": 0,
+            "periods": 4104,
+            "oomKills": 0,
+            "affinity": [
+              "Cpus_allowed_list:\t63"
+            ]
+          }
+        },
+        {
+          "path": "/agent",
+          "vmCount": 10,
+          "offeredRps": 300,
+          "scheduledSeconds": 20,
+          "elapsedSeconds": 21.883756315917708,
+          "requests": 6000,
+          "success": 6000,
+          "errors": 0,
+          "errorTypes": {},
+          "successfulRps": 274.1759647376327,
+          "latencyMs": {
+            "p50": 2206.5963259665295,
+            "p95": 3203.9869049331173,
+            "p99": 3563.9832669403404,
+            "max": 4034.444410004653
+          },
+          "driverLagP99Ms": 1.8853239016607404,
+          "perHostSuccess": {
+            "172.26.18.140": 600,
+            "172.26.18.3": 600,
+            "172.26.18.42": 600,
+            "172.26.18.141": 600,
+            "172.26.18.27": 600,
+            "172.26.18.95": 600,
+            "172.26.18.56": 600,
+            "172.26.18.182": 600,
+            "172.26.18.102": 600,
+            "172.26.18.37": 600
+          },
+          "resources": {
+            "cpuCores": 0.9115556369012345,
+            "memoryCurrentMiB": 6445.69140625,
+            "anonymousMiB": 3160.51953125,
+            "throttledSeconds": 0.0,
+            "throttledPeriods": 0,
+            "periods": 4418,
+            "oomKills": 0,
+            "affinity": [
+              "Cpus_allowed_list:\t63"
+            ]
+          }
+        }
+      ],
+      "idle": {
+        "cpuCores": 0.10421234524852897,
+        "memoryCurrentMiB": 6426.0234375,
+        "anonymousMiB": 3126.3046875,
+        "throttledSeconds": 0.0,
+        "throttledPeriods": 0,
+        "periods": 558,
+        "oomKills": 0,
+        "affinity": [
+          "Cpus_allowed_list:\t63"
+        ]
+      }
+    },
+    {
+      "vmCount": 20,
+      "scaleUpSeconds": 71.32519150013104,
+      "tests": [
+        {
+          "path": "/web",
+          "vmCount": 20,
+          "offeredRps": 100,
+          "scheduledSeconds": 20,
+          "elapsedSeconds": 20.952927984995767,
+          "requests": 2000,
+          "success": 2000,
+          "errors": 0,
+          "errorTypes": {},
+          "successfulRps": 95.45205335656118,
+          "latencyMs": {
+            "p50": 2.715675043873489,
+            "p95": 10.950954048894346,
+            "p99": 221.17339493706822,
+            "max": 1622.0749870408326
+          },
+          "driverLagP99Ms": 1.6881889896467328,
+          "perHostSuccess": {
+            "172.26.18.140": 100,
+            "172.26.18.3": 100,
+            "172.26.18.42": 100,
+            "172.26.18.141": 100,
+            "172.26.18.27": 100,
+            "172.26.18.95": 100,
+            "172.26.18.56": 100,
+            "172.26.18.182": 100,
+            "172.26.18.102": 100,
+            "172.26.18.37": 100,
+            "172.26.18.243": 100,
+            "172.26.18.31": 100,
+            "172.26.18.123": 100,
+            "172.26.18.133": 100,
+            "172.26.18.254": 100,
+            "172.26.18.109": 100,
+            "172.26.18.225": 100,
+            "172.26.18.12": 100,
+            "172.26.18.49": 100,
+            "172.26.18.14": 100
+          },
+          "resources": {
+            "cpuCores": 0.40346760173597446,
+            "memoryCurrentMiB": 12866.94921875,
+            "anonymousMiB": 6317.23046875,
+            "throttledSeconds": 0.0,
+            "throttledPeriods": 0,
+            "periods": 7827,
+            "oomKills": 0,
+            "affinity": [
+              "Cpus_allowed_list:\t63"
+            ]
+          }
+        },
+        {
+          "path": "/web",
+          "vmCount": 20,
+          "offeredRps": 500,
+          "scheduledSeconds": 20,
+          "elapsedSeconds": 20.6511783109745,
+          "requests": 10000,
+          "success": 10000,
+          "errors": 0,
+          "errorTypes": {},
+          "successfulRps": 484.23387031072093,
+          "latencyMs": {
+            "p50": 204.92179691791534,
+            "p95": 503.4507350064814,
+            "p99": 1095.3867570497096,
+            "max": 2459.455223986879
+          },
+          "driverLagP99Ms": 1.4428530121222138,
+          "perHostSuccess": {
+            "172.26.18.140": 500,
+            "172.26.18.3": 500,
+            "172.26.18.42": 500,
+            "172.26.18.141": 500,
+            "172.26.18.27": 500,
+            "172.26.18.95": 500,
+            "172.26.18.56": 500,
+            "172.26.18.182": 500,
+            "172.26.18.102": 500,
+            "172.26.18.37": 500,
+            "172.26.18.243": 500,
+            "172.26.18.31": 500,
+            "172.26.18.123": 500,
+            "172.26.18.133": 500,
+            "172.26.18.254": 500,
+            "172.26.18.109": 500,
+            "172.26.18.225": 500,
+            "172.26.18.12": 500,
+            "172.26.18.49": 500,
+            "172.26.18.14": 500
+          },
+          "resources": {
+            "cpuCores": 0.9136629669177403,
+            "memoryCurrentMiB": 12876.9765625,
+            "anonymousMiB": 6329.89453125,
+            "throttledSeconds": 0.0,
+            "throttledPeriods": 0,
+            "periods": 8010,
+            "oomKills": 0,
+            "affinity": [
+              "Cpus_allowed_list:\t63"
+            ]
+          }
+        },
+        {
+          "path": "/agent",
+          "vmCount": 20,
+          "offeredRps": 40,
+          "scheduledSeconds": 20,
+          "elapsedSeconds": 20.234103637980297,
+          "requests": 800,
+          "success": 800,
+          "errors": 0,
+          "errorTypes": {},
+          "successfulRps": 39.53720976788737,
+          "latencyMs": {
+            "p50": 257.1338239358738,
+            "p95": 270.1776350149885,
+            "p99": 545.1314660022035,
+            "max": 1998.9842120558023
+          },
+          "driverLagP99Ms": 2.2319250274449587,
+          "perHostSuccess": {
+            "172.26.18.140": 40,
+            "172.26.18.3": 40,
+            "172.26.18.42": 40,
+            "172.26.18.141": 40,
+            "172.26.18.27": 40,
+            "172.26.18.95": 40,
+            "172.26.18.56": 40,
+            "172.26.18.182": 40,
+            "172.26.18.102": 40,
+            "172.26.18.37": 40,
+            "172.26.18.243": 40,
+            "172.26.18.31": 40,
+            "172.26.18.123": 40,
+            "172.26.18.133": 40,
+            "172.26.18.254": 40,
+            "172.26.18.109": 40,
+            "172.26.18.225": 40,
+            "172.26.18.12": 40,
+            "172.26.18.49": 40,
+            "172.26.18.14": 40
+          },
+          "resources": {
+            "cpuCores": 0.3607468388120019,
+            "memoryCurrentMiB": 12867.88671875,
+            "anonymousMiB": 6326.64453125,
+            "throttledSeconds": 0.0,
+            "throttledPeriods": 0,
+            "periods": 4990,
+            "oomKills": 0,
+            "affinity": [
+              "Cpus_allowed_list:\t63"
+            ]
+          }
+        },
+        {
+          "path": "/agent",
+          "vmCount": 20,
+          "offeredRps": 100,
+          "scheduledSeconds": 20,
+          "elapsedSeconds": 20.24832344299648,
+          "requests": 2000,
+          "success": 2000,
+          "errors": 0,
+          "errorTypes": {},
+          "successfulRps": 98.77360985616629,
+          "latencyMs": {
+            "p50": 258.3897920558229,
+            "p95": 281.5642450004816,
+            "p99": 505.1963860169053,
+            "max": 1156.1654669931158
+          },
+          "driverLagP99Ms": 2.0951840560883284,
+          "perHostSuccess": {
+            "172.26.18.140": 100,
+            "172.26.18.3": 100,
+            "172.26.18.42": 100,
+            "172.26.18.141": 100,
+            "172.26.18.27": 100,
+            "172.26.18.95": 100,
+            "172.26.18.56": 100,
+            "172.26.18.182": 100,
+            "172.26.18.102": 100,
+            "172.26.18.37": 100,
+            "172.26.18.243": 100,
+            "172.26.18.31": 100,
+            "172.26.18.123": 100,
+            "172.26.18.133": 100,
+            "172.26.18.254": 100,
+            "172.26.18.109": 100,
+            "172.26.18.225": 100,
+            "172.26.18.12": 100,
+            "172.26.18.49": 100,
+            "172.26.18.14": 100
+          },
+          "resources": {
+            "cpuCores": 0.6089267767910785,
+            "memoryCurrentMiB": 12873.58203125,
+            "anonymousMiB": 6334.30859375,
+            "throttledSeconds": 0.0,
+            "throttledPeriods": 0,
+            "periods": 8075,
+            "oomKills": 0,
+            "affinity": [
+              "Cpus_allowed_list:\t63"
+            ]
+          }
+        },
+        {
+          "path": "/agent",
+          "vmCount": 20,
+          "offeredRps": 300,
+          "scheduledSeconds": 20,
+          "elapsedSeconds": 22.649702582973987,
+          "requests": 6000,
+          "success": 5080,
+          "errors": 920,
+          "errorTypes": {
+            "OSError": 619,
+            "TimeoutError": 301
+          },
+          "successfulRps": 224.28550579815067,
+          "latencyMs": {
+            "p50": 3411.7876701056957,
+            "p95": 4678.103402955458,
+            "p99": 4921.837716014124,
+            "max": 4998.087962972932
+          },
+          "driverLagP99Ms": 2.1367010194808245,
+          "perHostSuccess": {
+            "172.26.18.140": 273,
+            "172.26.18.3": 262,
+            "172.26.18.42": 262,
+            "172.26.18.141": 242,
+            "172.26.18.27": 274,
+            "172.26.18.95": 258,
+            "172.26.18.56": 268,
+            "172.26.18.182": 249,
+            "172.26.18.102": 224,
+            "172.26.18.37": 232,
+            "172.26.18.243": 246,
+            "172.26.18.31": 263,
+            "172.26.18.123": 260,
+            "172.26.18.133": 265,
+            "172.26.18.254": 267,
+            "172.26.18.109": 265,
+            "172.26.18.225": 263,
+            "172.26.18.12": 261,
+            "172.26.18.49": 225,
+            "172.26.18.14": 221
+          },
+          "resources": {
+            "cpuCores": 0.927076685357126,
+            "memoryCurrentMiB": 12879.20703125,
+            "anonymousMiB": 6352.80859375,
+            "throttledSeconds": 0.0,
+            "throttledPeriods": 0,
+            "periods": 8800,
+            "oomKills": 0,
+            "affinity": [
+              "Cpus_allowed_list:\t63"
+            ]
+          }
+        }
+      ],
+      "idle": {
+        "cpuCores": 0.2337870322528871,
+        "memoryCurrentMiB": 12872.53515625,
+        "anonymousMiB": 6309.53515625,
+        "throttledSeconds": 0.0,
+        "throttledPeriods": 0,
+        "periods": 1029,
+        "oomKills": 0,
+        "affinity": [
+          "Cpus_allowed_list:\t63"
+        ]
+      }
+    }
+  ],
+  "completedAt": "2026-10-30T23:26:54.794752+08:00",
+  "overloadRecheck": {
+    "driverFDLimit": 65536,
+    "path": "/agent",
+    "vmCount": 20,
+    "offeredRps": 300,
+    "scheduledSeconds": 20,
+    "elapsedSeconds": 24.7184280869551,
+    "requests": 6000,
+    "success": 3009,
+    "errors": 2991,
+    "errorTypes": {
+      "TimeoutError": 2991
+    },
+    "successfulRps": 121.7310416914403,
+    "latencyMs": {
+      "p50": 3345.297168008983,
+      "p95": 4883.885630057193,
+      "p99": 4985.129654989578,
+      "max": 4999.9536810209975
+    },
+    "driverLagP99Ms": 1.3038633624091744,
+    "perHostSuccess": {
+      "172.26.18.140": 144,
+      "172.26.18.3": 166,
+      "172.26.18.42": 146,
+      "172.26.18.141": 153,
+      "172.26.18.27": 154,
+      "172.26.18.95": 129,
+      "172.26.18.56": 173,
+      "172.26.18.182": 138,
+      "172.26.18.102": 203,
+      "172.26.18.37": 161,
+      "172.26.18.243": 132,
+      "172.26.18.31": 161,
+      "172.26.18.123": 184,
+      "172.26.18.133": 175,
+      "172.26.18.254": 134,
+      "172.26.18.109": 136,
+      "172.26.18.225": 152,
+      "172.26.18.12": 160,
+      "172.26.18.49": 124,
+      "172.26.18.14": 84
+    },
+    "resources": {
+      "cpuCores": 0.9401146773168457,
+      "memoryCurrentMiB": 12884.4453125,
+      "anonymousMiB": 6384.8671875,
+      "throttledSeconds": 0.0,
+      "throttledPeriods": 0,
+      "periods": 9610,
+      "oomKills": 0,
+      "affinity": [
+        "Cpus_allowed_list:\t63"
+      ]
+    }
+  },
+  "measurementNotes": [
+    "Original 20-VM 300-RPS run recorded OSError without errno and a driver soft FD limit of 1024; overloadRecheck uses 65536 and records errno.",
+    "The initial single-VM 100-RPS run had a latency spike; singleVMBaselineRecheck is a targeted 40-second repeat after stopping the other VMs.",
+    "CPU results use cgroup cpu.stat usage_usec. Historical host /proc/stat percentages were omitted because the first calculation double-counted guest time; the sampler now excludes guest and guest_nice from total ticks."
+  ],
+  "singleVMBaselineRecheck": {
+    "driverFDLimit": 65536,
+    "path": "/web",
+    "vmCount": 1,
+    "offeredRps": 100,
+    "scheduledSeconds": 40,
+    "elapsedSeconds": 39.99414342199452,
+    "requests": 4000,
+    "success": 4000,
+    "errors": 0,
+    "errorTypes": {},
+    "successfulRps": 100.01464358904673,
+    "latencyMs": {
+      "p50": 2.0729739917442203,
+      "p95": 2.952572889626026,
+      "p99": 22.122281952761114,
+      "max": 300.3884049830958
+    },
+    "driverLagP99Ms": 2.0726299844682217,
+    "perHostSuccess": {
+      "172.26.18.140": 4000
+    },
+    "resources": {
+      "cpuCores": 0.1538061043238114,
+      "memoryCurrentMiB": 648.58203125,
+      "anonymousMiB": 328.05078125,
+      "throttledSeconds": 0.0,
+      "throttledPeriods": 0,
+      "periods": 808,
+      "oomKills": 0,
+      "affinity": [
+        "Cpus_allowed_list:\t63"
+      ]
+    }
+  },
+  "cleanup": {
+    "time": "2026-10-30T23:33:46.759579+08:00",
+    "densityNamespaceRemoved": true,
+    "acceptanceVMs": {
+      "alice": "Running",
+      "alice-restored": "Stopped",
+      "bob": "Running"
+    }
+  }
+}

@@ -8,6 +8,8 @@
 
 下文的 `hack/lab.py` 保留最初 BusyBox 生命周期实验；普通 Linux 验收使用 `hack/acceptance.py`。
 
+共享 CPU 密度实验已覆盖同一逻辑 CPU 上的 1、10、20 台 Ubuntu VM，见 [压测结果与配置建议](docs/density-benchmark.md)。
+
 ## 构建
 
 Go 1.25+；依赖与校验锁定在 go.mod/go.sum，controller-runtime 与 Kubernetes 1.35 API 对齐。
